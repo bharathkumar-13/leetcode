@@ -1,3 +1,4 @@
+import java.util.*;
 class Solution {
     public int[] twoSum(int[] nums, int target) {
         int[] arr=new int[2];
@@ -8,13 +9,9 @@ class Solution {
                     arr[k]=i;
                     k++;
                     arr[k]=j;
-                    return arr;
                 }
-                
             }
         }
         return arr;
-        
-        
     }
 }
