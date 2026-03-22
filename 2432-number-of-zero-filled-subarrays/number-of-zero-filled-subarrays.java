@@ -1,19 +1,20 @@
-import java.util.*;
 class Solution {
     public long zeroFilledSubarray(int[] nums) {
-        
-        long count = 0, ans = 0;
+        long result = 0;
+        int zeroCount = 0;
 
-        for(int num : nums){
-            if(num == 0){
-                count++;
-                ans += count;
-            } else {
-                count = 0;
-            }
+        for (int num : nums) {
+        if (num == 0) {
+            zeroCount++;
+        } else {
+            result += zeroCount * (zeroCount + 1L) / 2;
+            zeroCount = 0;
         }
-        return ans;
-        
+        }
 
+        result += zeroCount * (zeroCount + 1L) / 2;
+
+         return result;
+        
     }
 }
