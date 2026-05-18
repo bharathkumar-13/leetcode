@@ -1,15 +1,11 @@
 import java.util.*;
 class Solution {
     public int singleNumber(int[] nums) {
-        Arrays.sort(nums);
-        int i=1;
-        while(i<nums.length){
-            if(nums[i]!=nums[i-1]){
-                return nums[i-1];
-            }
-            i+=2;
+        int ans=0;
+        for(int n:nums){
+            ans=ans^n;
         }
-        return nums[nums.length-1];
+        return ans;
         
         
     }
