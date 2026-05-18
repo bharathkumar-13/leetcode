@@ -1,22 +1,15 @@
 import java.util.*;
 class Solution {
     public int singleNumber(int[] nums) {
-        HashMap<Integer,Integer> map=new HashMap<>();
-        for(int n:nums){
-            if(map.containsKey(n)){
-                int k=map.get(n);
-                k++;
-                map.put(n,k);
-            }else{
-                map.put(n,1);
+        Arrays.sort(nums);
+        int i=1;
+        while(i<nums.length){
+            if(nums[i]!=nums[i-1]){
+                return nums[i-1];
             }
+            i+=2;
         }
-        for(Map.Entry<Integer, Integer> entry : map.entrySet()){
-            if(entry.getValue()==1){
-                return entry.getKey();
-            }
-        }
-        return -1;
+        return nums[nums.length-1];
         
         
     }
